@@ -2,7 +2,10 @@
 Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 
 ## to-do list ##
-* create-react-native-app
+- [x] create-react-native-app
+- [x] eject app
+- [ ] test with android simulator
+- [ ] test with ios simulator
 
 
 ## react-native info ##
