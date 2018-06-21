@@ -8,6 +8,8 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [ ] test with ios simulator
 - [x] add hard coded temperature readings
 - [x] dynamically increase temperature of probes
+- [x] install react-native-navigation for android
+- [ ] install react-native-navigation for iOS 
 
 
 ## react-native info ##
