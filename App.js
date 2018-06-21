@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {StyleSheet, View} from 'react-native';
 import TempSensor from './src/components/TempSensor/TempSensor';
 
-export default class App extends React.Component {
+export default class App extends Component {
 
   state = {
     sensor1: {
@@ -23,6 +23,31 @@ export default class App extends React.Component {
       highAlarm: 90.0,
       lowAlarm: 0.0
     }
+  }
+
+  ticker = () => {
+    this.setState(prevState => ({
+      sensor1: {
+          ...prevState.sensor1,
+        temp: prevState.sensor1.temp + 0.08
+      },
+      sensor2: {
+          ...prevState.sensor2,
+        temp: prevState.sensor2.temp + 0.05
+      },
+      sensor3: {
+          ...prevState.sensor3,
+        temp: prevState.sensor3.temp + 0.03
+      }
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.ticker(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
