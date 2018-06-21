@@ -6,6 +6,7 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] eject app
 - [x] test with android simulator
 - [ ] test with ios simulator
+- [x] add hard coded temperature readings
 
 
 ## react-native info ##
