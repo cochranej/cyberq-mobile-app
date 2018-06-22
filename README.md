@@ -10,7 +10,10 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] dynamically increase temperature of probes
 - [x] install react-native-navigation for android
 - [ ] install react-native-navigation for iOS 
-
+- [x] implement auth screen
+- [x] install vector icons for android
+- [ ] install vector icons for iOS
+- [x] implement tabs
 
 ## react-native info ##
 
