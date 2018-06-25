@@ -1,0 +1,1 @@
+export {updateSensorOneTemp, updateSensorTwoTemp, updateSensorThreeTemp} from "./temperatures";

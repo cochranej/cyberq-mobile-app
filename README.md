@@ -14,6 +14,7 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] install vector icons for android
 - [ ] install vector icons for iOS
 - [x] implement tabs
+- [x] global state handled by Redux
 
 ## react-native info ##
 
