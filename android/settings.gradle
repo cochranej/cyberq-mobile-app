@@ -1,4 +1,4 @@
-rootProject.name = 'cyberqmobileapp'
+rootProject.name = 'cyberq'
 
 include ':app'
 

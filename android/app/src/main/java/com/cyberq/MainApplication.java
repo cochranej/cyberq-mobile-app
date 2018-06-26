@@ -1,4 +1,4 @@
-package com.cyberqmobileapp;
+package com.cyberq;
 
 import android.app.Application;
 
