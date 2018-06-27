@@ -1,2 +1,2 @@
 export {updateSensorOneTemp, updateSensorTwoTemp, updateSensorThreeTemp} from "./temperatures";
-export {updateTemperateUnits} from "./settings";
+export {updateTemperateUnits, updateDemoMode} from "./settings";

@@ -18,6 +18,9 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] incorporate Redux Devtools enhancer
 - [x] add "units" to settings
 - [x] use global "units" on home screen
+- [x] add "Demo Mode" to settings tab
+- [ ] wire up demo mode
+- [ ] add "Update Rate" to settings tab
 
 
 ## react-native info ##
