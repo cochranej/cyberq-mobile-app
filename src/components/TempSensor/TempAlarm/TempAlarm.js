@@ -1,11 +1,13 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React from "react";
+import {StyleSheet, View, Text} from "react-native";
+import {getTemperature} from "../../../functions/functions";
 
 const tempAlarm = (props) => {
+  const temperature = getTemperature(props.temp, props.units);
   return (
       <View style={styles.alarm}>
         <Text>{props.name}</Text>
-        <Text>{props.temp.toFixed(1)}&#8451;</Text>
+        <Text>{temperature}&deg;{props.units}</Text>
       </View>
   );
 };

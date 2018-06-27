@@ -1,11 +1,13 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React from "react";
+import {StyleSheet, View, Text} from "react-native";
+import {getTemperature} from "../../../functions/functions";
 
 const tempReading = (props) => {
+  const temperature = getTemperature(props.temp, props.units);
   return (
       <View style={styles.temp}>
-        <Text style={styles.tempReading}>{props.temp.toFixed(1)}</Text>
-        <Text style={styles.tempScale}>&#8451;</Text>
+        <Text style={styles.tempReading}>{temperature}</Text>
+        <Text style={styles.units}>&deg;{props.units}</Text>
       </View>
   );
 };
@@ -16,12 +18,12 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   tempReading: {
-    fontSize: 48,
+    fontSize: 32,
     fontWeight: "bold",
     color: "black"
   },
-  tempScale: {
-    fontSize: 24,
+  units: {
+    fontSize: 16,
     fontWeight: "bold",
     color: "black"
   }

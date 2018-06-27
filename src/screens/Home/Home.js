@@ -23,9 +23,9 @@ class Home extends Component {
   render() {
     return (
         <View style={styles.container}>
-          <TempSensor data={this.props.sensor1}/>
-          <TempSensor data={this.props.sensor2}/>
-          <TempSensor data={this.props.sensor3}/>
+          <TempSensor data={this.props.sensor1} units={this.props.units}/>
+          <TempSensor data={this.props.sensor2} units={this.props.units}/>
+          <TempSensor data={this.props.sensor3} units={this.props.units}/>
         </View>
     );
   }
@@ -45,7 +45,8 @@ const mapStateToProps = state => {
   return {
     sensor1: state.temperatures.sensor1,
     sensor2: state.temperatures.sensor2,
-    sensor3: state.temperatures.sensor3
+    sensor3: state.temperatures.sensor3,
+    units: state.settings.units
   };
 };
 

@@ -17,7 +17,7 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] global state handled by Redux
 - [x] incorporate Redux Devtools enhancer
 - [x] add "units" to settings
-- [ ] use global "units" on home screen
+- [x] use global "units" on home screen
 
 
 ## react-native info ##

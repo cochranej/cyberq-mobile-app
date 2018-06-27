@@ -7,9 +7,9 @@ const tempSensor = (props) => {
   return (
       <View style={styles.container}>
         <Text style={styles.heading}>{props.data.name}</Text>
-        <TempReading temp={props.data.temp}/>
-        <TempAlarm name="High Alarm" temp={props.data.highAlarm} />
-        <TempAlarm name="Low Alarm" temp={props.data.lowAlarm} />
+        <TempReading temp={props.data.temp} units={props.units} />
+        <TempAlarm name="High Alarm" temp={props.data.highAlarm} units={props.units} />
+        <TempAlarm name="Low Alarm" temp={props.data.lowAlarm} units={props.units} />
       </View>
   );
 };
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   heading: {
     backgroundColor: "grey",
     color: "white",
-    fontSize: 24,
+    fontSize: 20,
     width: "100%",
     textAlign: "center",
   }

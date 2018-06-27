@@ -1,2 +1,2 @@
-export const CENTIGRADE = "&#8451;";
-export const FAHRENHEIT = "&#8457;";
+export const CENTIGRADE = "C";
+export const FAHRENHEIT = "F";
