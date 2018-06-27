@@ -1,8 +1,10 @@
 import {createStore, combineReducers, compose} from "redux";
 import temperaturesReducer from "./reducers/temperatures";
+import settingsReducer from "./reducers/settings";
 
 const rootReducer = combineReducers({
-  temperatures: temperaturesReducer
+  temperatures: temperaturesReducer,
+  settings: settingsReducer
 });
 
 let composeEnhancers = compose;

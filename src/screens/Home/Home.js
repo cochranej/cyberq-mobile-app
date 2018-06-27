@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View} from "react-native";
 import TempSensor from "../../../src/components/TempSensor/TempSensor";
 import {connect} from "react-redux";
 import {updateSensorOneTemp, updateSensorTwoTemp, updateSensorThreeTemp} from "../../store/actions/index";
@@ -7,9 +7,9 @@ import {updateSensorOneTemp, updateSensorTwoTemp, updateSensorThreeTemp} from ".
 class Home extends Component {
 
   ticker = () => {
-    this.props.onUpdateSensorOne();
-    this.props.onUpdateSensorTwo();
-    this.props.onUpdateSensorThree();
+    this.props.onUpdateSensorOne(1);
+    this.props.onUpdateSensorTwo(1);
+    this.props.onUpdateSensorThree(1);
   }
 
   componentDidMount() {
@@ -51,9 +51,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onUpdateSensorOne: () => dispatch(updateSensorOneTemp(1)),
-    onUpdateSensorTwo: () => dispatch(updateSensorTwoTemp(1)),
-    onUpdateSensorThree: () => dispatch(updateSensorThreeTemp(1))
+    onUpdateSensorOne: (increment) => dispatch(updateSensorOneTemp(increment)),
+    onUpdateSensorTwo: (increment) => dispatch(updateSensorTwoTemp(increment)),
+    onUpdateSensorThree: (increment) => dispatch(updateSensorThreeTemp(increment))
   };
 };
 
