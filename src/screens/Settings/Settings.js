@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Picker, StyleSheet, Text, View, Switch} from 'react-native';
 import {CENTIGRADE, FAHRENHEIT} from '../../constants/temperatureUnits';
 import {connect} from "react-redux";
-import {updateTemperateUnits, updateDemoMode} from "../../store/actions/index";
+import {updateTemperateUnits, updateDemoMode, updateRefreshRate} from "../../store/actions/index";
 
 class Settings extends Component {
   render() {
@@ -14,9 +14,19 @@ class Settings extends Component {
           </View>
           <View style={styles.setting}>
             <Text style={styles.settingText}>Units:</Text>
-            <Picker style={styles.unitPicker} selectedValue = {this.props.units} onValueChange = {this.props.onUpdateUnits}>
-              <Picker.Item itemStyle={styles.unitPickerItem} label = "Centigrade" value = {CENTIGRADE} />
-              <Picker.Item itemStyle={styles.unitPickerItem} label = "Fahrenheit" value = {FAHRENHEIT} />
+            <Picker style={styles.settingPicker} selectedValue = {this.props.units} onValueChange = {this.props.onUpdateUnits}>
+              <Picker.Item itemStyle={styles.settingPickerItem} label="Centigrade" value={CENTIGRADE} />
+              <Picker.Item itemStyle={styles.settingPickerItem} label="Fahrenheit" value={FAHRENHEIT} />
+            </Picker>
+          </View>
+          <View style={styles.setting}>
+            <Text style={styles.settingText}>Refresh Rate:</Text>
+            <Picker style={styles.settingPicker} selectedValue = {this.props.refreshRate} onValueChange = {this.props.onUpdateRefreshRate}>
+              <Picker.Item itemStyle={styles.settingPickerItem} label="1 second" value="1" />
+              <Picker.Item itemStyle={styles.settingPickerItem} label="5 seconds" value="5" />
+              <Picker.Item itemStyle={styles.settingPickerItem} label="10 seconds" value="10" />
+              <Picker.Item itemStyle={styles.settingPickerItem} label="20 seconds" value="20" />
+              <Picker.Item itemStyle={styles.settingPickerItem} label="30 seconds" value="30" />
             </Picker>
           </View>
         </View>
@@ -45,10 +55,10 @@ const styles = StyleSheet.create({
   settingText: {
     fontSize: 18
   },
-  unitPicker: {
+  settingPicker: {
     width: "50%"
   },
-  unitPickerItem: {
+  settingPickerItem: {
     fontSize: 18
   }
 });
@@ -56,14 +66,16 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state) => {
   return {
     units: state.settings.units,
-    demoMode: state.settings.demoMode
+    demoMode: state.settings.demoMode,
+    refreshRate: state.settings.refreshRate
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onUpdateUnits: (units) => dispatch(updateTemperateUnits(units)),
-    onUpdateDemoMode: (demoMode) => dispatch(updateDemoMode(demoMode))
+    onUpdateDemoMode: (demoMode) => dispatch(updateDemoMode(demoMode)),
+    onUpdateRefreshRate: (refreshRate) => dispatch(updateRefreshRate(refreshRate))
   };
 };
 

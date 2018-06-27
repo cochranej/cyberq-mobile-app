@@ -7,17 +7,24 @@ import {updateSensorOneTemp, updateSensorTwoTemp, updateSensorThreeTemp} from ".
 class Home extends Component {
 
   ticker = () => {
-    this.props.onUpdateSensorOne(1);
-    this.props.onUpdateSensorTwo(1);
-    this.props.onUpdateSensorThree(1);
+    this.props.onUpdateSensorOne(this.props.refreshRate);
+    this.props.onUpdateSensorTwo(this.props.refreshRate);
+    this.props.onUpdateSensorThree(this.props.refreshRate);
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.ticker(), 1000);
+    this.interval = setInterval(() => this.ticker(), 1000 * this.props.refreshRate);
   }
 
   componentWillUnmount() {
     clearInterval(this.interval);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.refreshRate !== this.props.refreshRate) {
+      clearInterval(this.interval);
+      this.interval = setInterval(() => this.ticker(), 1000 * this.props.refreshRate);
+    }
   }
 
   render() {
@@ -46,7 +53,8 @@ const mapStateToProps = state => {
     sensor1: state.temperatures.sensor1,
     sensor2: state.temperatures.sensor2,
     sensor3: state.temperatures.sensor3,
-    units: state.settings.units
+    units: state.settings.units,
+    refreshRate: state.settings.refreshRate
   };
 };
 

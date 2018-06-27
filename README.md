@@ -20,7 +20,8 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] use global "units" on home screen
 - [x] add "Demo Mode" to settings tab
 - [ ] wire up demo mode
-- [ ] add "Update Rate" to settings tab
+- [x] add "Refresh Rate" to settings tab
+- [x] use global "refresh rate" to drive temp updates
 
 
 ## react-native info ##

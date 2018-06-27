@@ -1,9 +1,10 @@
-import {UPDATE_TEMPERATURE_UNITS, UPDATE_DEMO_MODE} from "../actions/actionTypes";
+import {UPDATE_TEMPERATURE_UNITS, UPDATE_DEMO_MODE, UPDATE_REFRESH_RATE} from "../actions/actionTypes";
 import {CENTIGRADE} from "../../constants/temperatureUnits";
 
 const initialState = {
   units: CENTIGRADE,
-  demoMode: true
+  demoMode: true,
+  refreshRate: 1
 };
 
 const settingsReducer = (state = initialState, action) => {
@@ -17,6 +18,11 @@ const settingsReducer = (state = initialState, action) => {
       return {
           ...state,
         demoMode: action.demoMode
+      };
+    case UPDATE_REFRESH_RATE:
+      return {
+          ...state,
+        refreshRate: action.refreshRate
       };
     default:
       return state;
