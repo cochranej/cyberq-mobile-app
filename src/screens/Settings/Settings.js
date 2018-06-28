@@ -21,7 +21,7 @@ class Settings extends Component {
           </View>
           <View style={styles.setting}>
             <Text style={styles.settingText}>Refresh Rate:</Text>
-            <Picker style={styles.settingPicker} selectedValue = {this.props.refreshRate} onValueChange = {this.props.onUpdateRefreshRate}>
+            <Picker style={styles.settingPicker} selectedValue={this.props.refreshRate} onValueChange={this.props.onUpdateRefreshRate}>
               <Picker.Item itemStyle={styles.settingPickerItem} label="1 second" value="1" />
               <Picker.Item itemStyle={styles.settingPickerItem} label="5 seconds" value="5" />
               <Picker.Item itemStyle={styles.settingPickerItem} label="10 seconds" value="10" />

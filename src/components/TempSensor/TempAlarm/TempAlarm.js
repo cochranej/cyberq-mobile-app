@@ -3,7 +3,7 @@ import {StyleSheet, View, Text} from "react-native";
 import {getTemperature} from "../../../functions/functions";
 
 const tempAlarm = (props) => {
-  const temperature = getTemperature(props.temp, props.units);
+  const temperature = getTemperature(props.temp, props.units).toFixed(0);
   return (
       <View style={styles.alarm}>
         <Text>{props.name}</Text>

@@ -22,6 +22,10 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [ ] wire up demo mode
 - [x] add "Refresh Rate" to settings tab
 - [x] use global "refresh rate" to drive temp updates
+- [x] add alarms screen
+- [ ] use alarms on home screen
+- [ ] wire up auth screen
+- [ ] add functionality to save readings
 
 
 ## react-native info ##
