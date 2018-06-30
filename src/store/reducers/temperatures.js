@@ -1,4 +1,4 @@
-import {UPDATE_SENSOR_1_TEMP, UPDATE_SENSOR_2_TEMP, UPDATE_SENSOR_3_TEMP} from "../actions/actionTypes";
+import * as ActionTypes from "../actions/actionTypes";
 
 const initialState = {
   sensor1: {
@@ -23,28 +23,12 @@ const initialState = {
 
 const temperaturesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_SENSOR_1_TEMP:
-      return {
-          ...state,
-        sensor1: {
-          ...state.sensor1,
-          temp: state.sensor1.temp + (0.08 * action.increment)
-        }
-      };
-    case UPDATE_SENSOR_2_TEMP:
+    case ActionTypes.UPDATE_SENSOR_TEMPERATURE:
       return {
         ...state,
-        sensor2: {
-          ...state.sensor2,
-          temp: state.sensor2.temp + (0.05 * action.increment)
-        }
-      };
-    case UPDATE_SENSOR_3_TEMP:
-      return {
-        ...state,
-        sensor3: {
-          ...state.sensor3,
-          temp: state.sensor3.temp + (0.03 * action.increment)
+        [action.key]: {
+          ...state[action.key],
+          temp: state[action.key].temp + (action.multiplier * action.increment)
         }
       };
     default:
