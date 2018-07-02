@@ -30,9 +30,9 @@ class Home extends Component {
   render() {
     return (
         <View style={styles.container}>
-          <TempSensor data={this.props.sensor1} units={this.props.units}/>
-          <TempSensor data={this.props.sensor2} units={this.props.units}/>
-          <TempSensor data={this.props.sensor3} units={this.props.units}/>
+          <TempSensor sensor={this.props.sensor1} units={this.props.units}/>
+          <TempSensor sensor={this.props.sensor2} units={this.props.units}/>
+          <TempSensor sensor={this.props.sensor3} units={this.props.units}/>
         </View>
     );
   }

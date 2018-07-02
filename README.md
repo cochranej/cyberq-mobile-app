@@ -23,7 +23,8 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] add "Refresh Rate" to settings tab
 - [x] use global "refresh rate" to drive temp updates
 - [x] add alarms screen
-- [ ] use alarms on home screen
+- [x] use alarms on home screen
+- [ ] add audible alarms
 - [ ] wire up auth screen
 - [ ] add functionality to save readings
 
