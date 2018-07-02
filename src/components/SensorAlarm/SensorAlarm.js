@@ -12,6 +12,7 @@ const sensorAlarm = (props) => {
             activeValue={props.sensor.highAlarmActive}
             onUpdateAlarm={props.onUpdateHighAlarm}
             onUpdateAlarmActive={props.onUpdateHighAlarmActive}
+            units={props.units}
         />
         <Alarm
             alarmType="Low Alarm"
@@ -19,6 +20,7 @@ const sensorAlarm = (props) => {
             activeValue={props.sensor.lowAlarmActive}
             onUpdateAlarm={props.onUpdateLowAlarm}
             onUpdateAlarmActive={props.onUpdateLowAlarmActive}
+            units={props.units}
         />
       </View>
   );
