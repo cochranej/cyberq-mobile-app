@@ -1,7 +1,8 @@
 import {CENTIGRADE} from "../constants/temperatureUnits";
 
 export const getTemperature = (temp, units) => {
-  const temperature = units === CENTIGRADE ? temp : temp * 1.8 + 32;
+  const tempNumber = Number(temp);
+  const temperature = units === CENTIGRADE ? tempNumber : tempNumber * 1.8 + 32;
   return temperature;
 };
 

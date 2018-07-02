@@ -7,9 +7,9 @@ import {updateSensorTemperature} from "../../store/actions/index";
 class Home extends Component {
 
   ticker = () => {
-    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor1", 0.8);
-    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor2", 0.5);
-    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor3", 0.3);
+    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor1", 0.08);
+    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor2", 0.05);
+    this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor3", 0.03);
   }
 
   componentDidMount() {
