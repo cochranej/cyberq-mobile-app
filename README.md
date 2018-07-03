@@ -25,8 +25,10 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] add alarms screen
 - [x] use alarms on home screen
 - [ ] add audible alarms
+- [x] add components and background image to auth screen
 - [ ] wire up auth screen
 - [ ] add functionality to save readings
+- [ ] app styling/responsive
 
 
 ## react-native info ##
