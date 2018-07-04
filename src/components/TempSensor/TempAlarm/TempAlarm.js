@@ -16,7 +16,7 @@ const tempAlarm = (props) => {
   return (
       <View style={styles.alarm}>
         <Text style={statusStyle}>{props.name}</Text>
-        <Text style={statusStyle}>{temperature}&deg;{props.units}</Text>
+        <Text style={statusStyle}>{temperature.toFixed(0)}&deg;{props.units}</Text>
       </View>
   );
 };
