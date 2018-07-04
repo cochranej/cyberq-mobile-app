@@ -2,8 +2,8 @@ import {UPDATE_TEMPERATURE_UNITS, UPDATE_DEMO_MODE, UPDATE_REFRESH_RATE} from ".
 import {CENTIGRADE} from "../../constants/temperatureUnits";
 
 const initialState = {
-  units: CENTIGRADE,
   demoMode: true,
+  units: CENTIGRADE,
   refreshRate: 1
 };
 

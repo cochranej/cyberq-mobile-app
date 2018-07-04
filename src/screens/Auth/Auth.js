@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {ImageBackground, StyleSheet, View} from "react-native";
 import DefaultInput from "../../components/DefaultInput/DefaultInput";
-import DefaultHeader from "../../components/DefaultHeading/DefaultHeading";
 import startMainTabs from "../MainTabs/startMainTabs";
 import backgroundImage from "../../assets/bbq.jpg";
 import ButtonWithBackground from "../../components/ButtonWithBackground/ButtonWithBackground";
@@ -16,7 +15,6 @@ class AuthScreen extends Component {
     return (
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
           <View style={styles.container}>
-            <DefaultHeader style={styles.header}>Please Log In</DefaultHeader>
             <ButtonWithBackground color="#29aaf4">Switch to Login</ButtonWithBackground>
             <View style={styles.inputContainer}>
               <DefaultInput placeholder="Your Email Address" style={styles.input}/>
@@ -39,11 +37,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center"
-  },
-  header: {
-    color: "yellow",
-    marginBottom: 50,
-    backgroundColor: "transparent"
   },
   inputContainer: {
     width: "80%"

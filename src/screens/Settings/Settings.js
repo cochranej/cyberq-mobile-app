@@ -1,32 +1,47 @@
 import React, {Component} from 'react';
-import {Picker, StyleSheet, Text, View, Switch} from 'react-native';
+import {Picker, StyleSheet, Switch, Text, View} from 'react-native';
 import {CENTIGRADE, FAHRENHEIT} from '../../constants/temperatureUnits';
 import {connect} from "react-redux";
-import {updateTemperateUnits, updateDemoMode, updateRefreshRate} from "../../store/actions/index";
+import {updateDemoMode, updateRefreshRate, updateTemperateUnits} from "../../store/actions/index";
 
 class Settings extends Component {
+  state = {
+    units: [
+      {label: "Centigrade", value: CENTIGRADE},
+      {label: "Fahrenheit", value: FAHRENHEIT}
+    ],
+    refreshRates: [
+      {label: "1 second", value: "1"},
+      {label: "5 seconds", value: "5"},
+      {label: "10 seconds", value: "10"},
+      {label: "20 seconds", value: "20"},
+      {label: "30 seconds", value: "30"}
+    ]
+  }
+
   render() {
+    unitItems = this.state.units.map((unit, index) => {
+      return (<Picker.Item key={index} itemStyle={styles.settingPickerItem} label={unit.label} value={unit.value} />);
+    });
+    refreshRateItems = this.state.refreshRates.map((refreshRate, index) => {
+      return (<Picker.Item key={index} itemStyle={styles.settingPickerItem} label={refreshRate.label} value={refreshRate.value} />);
+    });
     return (
         <View style={styles.container}>
-          <View style={styles.setting}>
+          <View style={[styles.setting, styles.groupEnd]}>
             <Text style={styles.settingText}>Demo Mode:</Text>
-            <Switch value={this.props.demoMode} onValueChange={this.props.onUpdateDemoMode} />
+            <Switch value={this.props.demoMode} onValueChange={this.props.onUpdateDemoMode} disabled={true} />
           </View>
           <View style={styles.setting}>
             <Text style={styles.settingText}>Units:</Text>
-            <Picker style={styles.settingPicker} selectedValue = {this.props.units} onValueChange = {this.props.onUpdateUnits}>
-              <Picker.Item itemStyle={styles.settingPickerItem} label="Centigrade" value={CENTIGRADE} />
-              <Picker.Item itemStyle={styles.settingPickerItem} label="Fahrenheit" value={FAHRENHEIT} />
+            <Picker style={styles.settingPicker} selectedValue={this.props.units} onValueChange={this.props.onUpdateUnits}>
+              {unitItems}
             </Picker>
           </View>
-          <View style={styles.setting}>
+          <View style={[styles.setting, styles.groupEnd]}>
             <Text style={styles.settingText}>Refresh Rate:</Text>
             <Picker style={styles.settingPicker} selectedValue={this.props.refreshRate} onValueChange={this.props.onUpdateRefreshRate}>
-              <Picker.Item itemStyle={styles.settingPickerItem} label="1 second" value="1" />
-              <Picker.Item itemStyle={styles.settingPickerItem} label="5 seconds" value="5" />
-              <Picker.Item itemStyle={styles.settingPickerItem} label="10 seconds" value="10" />
-              <Picker.Item itemStyle={styles.settingPickerItem} label="20 seconds" value="20" />
-              <Picker.Item itemStyle={styles.settingPickerItem} label="30 seconds" value="30" />
+              {refreshRateItems}
             </Picker>
           </View>
         </View>
@@ -39,6 +54,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "lightgrey",
     paddingTop: 30
+  },
+  groupEnd: {
+    marginBottom: 30
   },
   setting: {
     borderWidth: .5,
