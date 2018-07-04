@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {updateDemoMode, updateRefreshRate, updateTemperateUnits} from "../../store/actions/index";
 
 class Settings extends Component {
+
   state = {
     units: [
       {label: "Centigrade", value: CENTIGRADE},
@@ -17,7 +18,22 @@ class Settings extends Component {
       {label: "20 seconds", value: "20"},
       {label: "30 seconds", value: "30"}
     ]
+  };
+
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
   }
+
+  onNavigatorEvent = (event) => {
+    if (event.type === "NavBarButtonPress") {
+      if (event.id === "sideDrawerToggle") {
+        this.props.navigator.toggleDrawer({
+          side: "left"
+        });
+      }
+    }
+  };
 
   render() {
     unitItems = this.state.units.map((unit, index) => {

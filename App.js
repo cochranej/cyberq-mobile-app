@@ -6,6 +6,7 @@ import AuthScreen from "./src/screens/Auth/Auth";
 import Home from "./src/screens/Home/Home";
 import Alarms from "./src/screens/Alarms/Alarms";
 import Settings from "./src/screens/Settings/Settings";
+import SideDrawer from "./src/screens/SideDrawer/SideDrawer";
 
 const store = configureStore();
 
@@ -14,6 +15,7 @@ Navigation.registerComponent("cyberq.AuthScreen", () => AuthScreen);
 Navigation.registerComponent("cyberq.HomeScreen", () => Home, store, Provider);
 Navigation.registerComponent("cyberq.AlarmsScreen", () => Alarms, store, Provider);
 Navigation.registerComponent("cyberq.SettingsScreen", () => Settings, store, Provider);
+Navigation.registerComponent("cyberq.SideDrawer", () => SideDrawer);
 
 // Start a App
 Navigation.startSingleScreenApp({

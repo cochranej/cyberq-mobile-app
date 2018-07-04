@@ -6,14 +6,33 @@ import {updateSensorTemperature} from "../../store/actions/index";
 
 class Home extends Component {
 
+  constructor(props) {
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+  }
+
+  onNavigatorEvent = (event) => {
+    if (event.type === "NavBarButtonPress") {
+      if (event.id === "sideDrawerToggle") {
+        this.props.navigator.toggleDrawer({
+          side: "left"
+        });
+      }
+    }
+  };
+
   ticker = () => {
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor1", 0.08);
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor2", 0.05);
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor3", 0.03);
   };
 
-  componentDidMount() {
+  setRefreshInterval = () => {
     this.interval = setInterval(() => this.ticker(), 1000 * this.props.refreshRate);
+  };
+
+  componentDidMount() {
+    this.setRefreshInterval();
   }
 
   componentWillUnmount() {
@@ -23,7 +42,7 @@ class Home extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.refreshRate !== this.props.refreshRate) {
       clearInterval(this.interval);
-      this.interval = setInterval(() => this.ticker(), 1000 * this.props.refreshRate);
+      this.setRefreshInterval();
     }
   }
 
