@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, View} from "react-native";
+import {ScrollView, StyleSheet, View} from "react-native";
 import {connect} from "react-redux";
 import {updateHighAlarm, updateHighAlarmActive, updateLowAlarm, updateLowAlarmActive} from "../../store/actions/index";
 import SensorAlarm from "../../components/SensorAlarm/SensorAlarm";
@@ -8,35 +8,37 @@ class Alarms extends Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <SensorAlarm
-              key="sensor1"
-              sensor={this.props.sensor1}
-              units={this.props.units}
-              onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor1", val)}
-              onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor1", val)}
-              onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor1", val)}
-              onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor1", val)}
-          />
-          <SensorAlarm
-              key="sensor2"
-              sensor={this.props.sensor2}
-              units={this.props.units}
-              onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor2", val)}
-              onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor2", val)}
-              onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor2", val)}
-              onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor2", val)}
-          />
-          <SensorAlarm
-              key="sensor3"
-              sensor={this.props.sensor3}
-              units={this.props.units}
-              onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor3", val)}
-              onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor3", val)}
-              onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor3", val)}
-              onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor3", val)}
-          />
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <SensorAlarm
+                key="sensor1"
+                sensor={this.props.sensor1}
+                units={this.props.units}
+                onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor1", val)}
+                onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor1", val)}
+                onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor1", val)}
+                onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor1", val)}
+            />
+            <SensorAlarm
+                key="sensor2"
+                sensor={this.props.sensor2}
+                units={this.props.units}
+                onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor2", val)}
+                onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor2", val)}
+                onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor2", val)}
+                onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor2", val)}
+            />
+            <SensorAlarm
+                key="sensor3"
+                sensor={this.props.sensor3}
+                units={this.props.units}
+                onUpdateHighAlarm={(val) => this.props.onUpdateHighAlarm("sensor3", val)}
+                onUpdateHighAlarmActive={(val) => this.props.onUpdateHighAlarmActive("sensor3", val)}
+                onUpdateLowAlarm={(val) => this.props.onUpdateLowAlarm("sensor3", val)}
+                onUpdateLowAlarmActive={(val) => this.props.onUpdateLowAlarmActive("sensor3", val)}
+            />
+          </View>
+        </ScrollView>
     );
   }
 }

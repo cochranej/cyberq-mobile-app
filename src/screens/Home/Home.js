@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, View} from "react-native";
+import {ScrollView, StyleSheet, View} from "react-native";
 import TempSensor from "../../../src/components/TempSensor/TempSensor";
 import {connect} from "react-redux";
 import {updateSensorTemperature} from "../../store/actions/index";
@@ -10,7 +10,7 @@ class Home extends Component {
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor1", 0.08);
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor2", 0.05);
     this.props.onUpdateSensorTemperature(this.props.refreshRate, "sensor3", 0.03);
-  }
+  };
 
   componentDidMount() {
     this.interval = setInterval(() => this.ticker(), 1000 * this.props.refreshRate);
@@ -29,11 +29,13 @@ class Home extends Component {
 
   render() {
     return (
-        <View style={styles.container}>
-          <TempSensor sensor={this.props.sensor1} units={this.props.units}/>
-          <TempSensor sensor={this.props.sensor2} units={this.props.units}/>
-          <TempSensor sensor={this.props.sensor3} units={this.props.units}/>
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <TempSensor sensor={this.props.sensor1} units={this.props.units}/>
+            <TempSensor sensor={this.props.sensor2} units={this.props.units}/>
+            <TempSensor sensor={this.props.sensor3} units={this.props.units}/>
+          </View>
+        </ScrollView>
     );
   }
 }
