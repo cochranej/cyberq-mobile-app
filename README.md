@@ -31,7 +31,7 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] add sign-out button to side drawer
 - [x] platform dependent styling and icons
 - [ ] add functionality to save readings
-- [ ] app styling/responsive
+- [x] make auth screen responsive
 
 
 ## react-native info ##

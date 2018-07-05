@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Picker, StyleSheet, Switch, Text, View} from 'react-native';
+import {Picker, StyleSheet, Switch, Text, View, ScrollView} from 'react-native';
 import {CENTIGRADE, FAHRENHEIT} from '../../constants/temperatureUnits';
 import {connect} from "react-redux";
 import {updateDemoMode, updateRefreshRate, updateTemperateUnits} from "../../store/actions/index";
@@ -43,24 +43,26 @@ class Settings extends Component {
       return (<Picker.Item key={index} itemStyle={styles.settingPickerItem} label={refreshRate.label} value={refreshRate.value} />);
     });
     return (
-        <View style={styles.container}>
-          <View style={[styles.setting, styles.groupEnd]}>
-            <Text style={styles.settingText}>Demo Mode:</Text>
-            <Switch value={this.props.demoMode} onValueChange={this.props.onUpdateDemoMode} disabled={true} />
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={[styles.setting, styles.groupEnd]}>
+              <Text style={styles.settingText}>Demo Mode:</Text>
+              <Switch value={this.props.demoMode} onValueChange={this.props.onUpdateDemoMode} disabled={true} />
+            </View>
+            <View style={styles.setting}>
+              <Text style={styles.settingText}>Units:</Text>
+              <Picker style={styles.settingPicker} selectedValue={this.props.units} onValueChange={this.props.onUpdateUnits}>
+                {unitItems}
+              </Picker>
+            </View>
+            <View style={[styles.setting, styles.groupEnd]}>
+              <Text style={styles.settingText}>Refresh Rate:</Text>
+              <Picker style={styles.settingPicker} selectedValue={this.props.refreshRate} onValueChange={this.props.onUpdateRefreshRate}>
+                {refreshRateItems}
+              </Picker>
+            </View>
           </View>
-          <View style={styles.setting}>
-            <Text style={styles.settingText}>Units:</Text>
-            <Picker style={styles.settingPicker} selectedValue={this.props.units} onValueChange={this.props.onUpdateUnits}>
-              {unitItems}
-            </Picker>
-          </View>
-          <View style={[styles.setting, styles.groupEnd]}>
-            <Text style={styles.settingText}>Refresh Rate:</Text>
-            <Picker style={styles.settingPicker} selectedValue={this.props.refreshRate} onValueChange={this.props.onUpdateRefreshRate}>
-              {refreshRateItems}
-            </Picker>
-          </View>
-        </View>
+        </ScrollView>
     );
   }
 }
@@ -68,7 +70,6 @@ class Settings extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "lightgrey",
     paddingTop: 30
   },
   groupEnd: {

@@ -1,11 +1,30 @@
 import React, {Component} from "react";
-import {ImageBackground, StyleSheet, View} from "react-native";
+import {ImageBackground, StyleSheet, View, Dimensions} from "react-native";
 import DefaultInput from "../../components/DefaultInput/DefaultInput";
 import startMainTabs from "../MainTabs/startMainTabs";
 import backgroundImage from "../../assets/bbq.jpg";
 import ButtonWithBackground from "../../components/ButtonWithBackground/ButtonWithBackground";
 
 class AuthScreen extends Component {
+
+  state = {
+    viewMode: Dimensions.get("window").height > 500 ? "portrait" : "landscape"
+  };
+
+  constructor(props) {
+    super(props);
+    Dimensions.addEventListener("change", this.updateStyles);
+  }
+
+  componentWillUnmount() {
+    Dimensions.addEventListener("change", this.updateStyles);
+  }
+
+  updateStyles = (dimensions) => {
+    this.setState({
+      viewMode: dimensions.window.height > 500 ? "portrait" : "landscape"
+    });
+  };
 
   loginHandler = () => {
     startMainTabs();
@@ -18,8 +37,14 @@ class AuthScreen extends Component {
             <ButtonWithBackground color="#29aaf4">Switch to Login</ButtonWithBackground>
             <View style={styles.inputContainer}>
               <DefaultInput placeholder="Your Email Address" style={styles.input}/>
-              <DefaultInput placeholder="Password" style={styles.input}/>
-              <DefaultInput placeholder="ConfirmPassword" style={styles.input}/>
+              <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
+                <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+                  <DefaultInput placeholder="Password" style={styles.input}/>
+                </View>
+                <View style={this.state.viewMode === "portrait" ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+                  <DefaultInput placeholder="ConfirmPassword" style={styles.input}/>
+                </View>
+              </View>
             </View>
             <ButtonWithBackground color="#29aaf4" onPress={this.loginHandler}>Login</ButtonWithBackground>
           </View>
@@ -44,6 +69,20 @@ const styles = StyleSheet.create({
   input: {
     backgroundColor: "lightgrey",
     borderColor: "darkgrey"
+  },
+  portraitPasswordContainer: {
+    flexDirection: "column",
+    justifyContent: "flex-start"
+  },
+  landscapePasswordContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  portraitPasswordWrapper: {
+    width: "100%"
+  },
+  landscapePasswordWrapper: {
+    width: "45%"
   }
 });
 
