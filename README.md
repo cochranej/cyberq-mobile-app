@@ -28,7 +28,7 @@ Mobile application for interfacing to the BBQ Guru "CyberQ" control unit
 - [x] add components and background image to auth screen
 - [ ] wire up auth screen
 - [x] add side drawer
-- [ ] style side drawer
+- [x] add sign-out button to side drawer
 - [ ] add logout to side drawer
 - [ ] add functionality to save readings
 - [ ] app styling/responsive
